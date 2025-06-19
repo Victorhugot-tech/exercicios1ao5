@@ -1,0 +1,14 @@
+/* Estilo de feedback para múltipla escolha */
+#resQuiz {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Estilo para título que muda de cor (ex. exercício 12) */
+  /*
+  #titulo {
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+  */
+  

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios Interativos</title>
+</head>
+<body>
+
+  <h1>Exercícios de JavaScript</h1>
+
+  <!-- Exercício 1 -->
+  <section>
+    <h2>1. Verificar se número é divisível por 3</h2>
+    <input type="number" id="numDiv3" placeholder="Digite um número" />
+    <button onclick="verificarDiv3()">Verificar</button>
+    <p id="resDiv3"></p>
+  </section>
+
+  <!-- Exercício 2 -->
+  <section>
+    <h2>2. Tabuada até 5</h2>
+    <input type="number" id="numTabuada" placeholder="Digite um número" />
+    <button onclick="mostrarTabuada()">Mostrar</button>
+    <ul id="resTabuada"></ul>
+  </section>
+
+  <!-- Exercício 3 -->
+  <section>
+    <h2>3. Contador de 100 em passos de 10</h2>
+    <p id="contador">100</p>
+    <button onclick="alterarContador(10)">+10</button>
+    <button onclick="alterarContador(-10)">-10</button>
+  </section>
+
+  <!-- Exercício 4 -->
+  <section>
+    <h2>4. Jogo de Adivinhação (1 a 20)</h2>
+    <input type="number" id="tentativa" placeholder="Tente adivinhar..." />
+    <button onclick="tentarAdivinhar()">Tentar</button>
+    <p id="resAdivinha"></p>
+  </section>
+
+  <!-- Exercício 5 -->
+  <section>
+    <h2>5. Média de 4 notas</h2>
+    <input type="number" id="nota1" placeholder="Nota 1" />
+    <input type="number" id="nota2" placeholder="Nota 2" />
+    <input type="number" id="nota3" placeholder="Nota 3" />
+    <input type="number" id="nota4" placeholder="Nota 4" />
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="resMedia"></p>
+  </section>
+
+  <script>
+    // Exercício 1
+    function verificarDiv3() {
+      const num = parseInt(document.getElementById("numDiv3").value);
+      const res = num % 3 === 0 ? "Divisível por 3" : "Não é divisível por 3";
+      document.getElementById("resDiv3").innerText = res;
+    }
+
+    // Exercício 2
+    function mostrarTabuada() {
+      const n = parseInt(document.getElementById("numTabuada").value);
+      const ul = document.getElementById("resTabuada");
+      ul.innerHTML = "";
+      for (let i = 1; i <= 5; i++) {
+        const li = document.createElement("li");
+        li.textContent = `${n} x ${i} = ${n * i}`;
+        ul.appendChild(li);
+      }
+    }
+
+    // Exercício 3
+    let valorContador = 100;
+    function alterarContador(delta) {
+      valorContador += delta;
+      document.getElementById("contador").innerText = valorContador;
+    }
+
+    // Exercício 4
+    const numeroSecreto = Math.floor(Math.random() * 20) + 1;
+    function tentarAdivinhar() {
+      const tentativa = parseInt(document.getElementById("tentativa").value);
+      const res = document.getElementById("resAdivinha");
+      if (tentativa === numeroSecreto) {
+        res.innerText = "Parabéns! Você acertou!";
+      } else if (tentativa < numeroSecreto) {
+        res.innerText = "Tente um número maior.";
+      } else {
+        res.innerText = "Tente um número menor.";
+      }
+    }
+
+    // Exercício 5
+    function calcularMedia() {
+      const n1 = parseFloat(document.getElementById("nota1").value);
+      const n2 = parseFloat(document.getElementById("nota2").value);
+      const n3 = parseFloat(document.getElementById("nota3").value);
+      const n4 = parseFloat(document.getElementById("nota4").value);
+      const media = ((n1 + n2 + n3 + n4) / 4).toFixed(2);
+      const res = media >= 6 ? "Aprovado" : "Reprovado";
+      document.getElementById("resMedia").innerText = `Média: ${media} - ${res}`;
+    }
+  </script>
+</body>
+</html>
